@@ -3,6 +3,9 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
+import { Spotlight } from '@/components/ui/aceternity/spotlight';
+import { TextGenerateEffect } from '@/components/ui/aceternity/text-generate-effect';
+import { MovingBorder } from '@/components/ui/aceternity/moving-border';
 
 interface HeroProps {
   headline: string;
@@ -32,29 +35,48 @@ export function Hero({ headline, subtext, imageSrc, showScrollIndicator = true, 
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/90 via-[#0A1628]/40 to-[#0A1628]/20" />
 
+      {/* Gold Spotlight */}
+      <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="#C9A84C" />
+
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 pb-24 md:pb-0 pt-24 w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="max-w-2xl"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold text-white leading-[1.1] tracking-[-0.02em]">
-            {headline}
-          </h1>
+        <div className="max-w-2xl">
+          {/* Animated headline */}
+          <TextGenerateEffect
+            words={headline}
+            className="text-4xl md:text-5xl text-white leading-[1.1] tracking-[-0.02em]"
+          />
+
+          {/* Subtext with delayed fade-in */}
           {subtext && (
-            <p className="mt-4 md:mt-6 text-lg md:text-xl text-white/80 leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8, ease: 'easeOut' }}
+              className="mt-4 md:mt-6 text-lg md:text-xl text-white/80 leading-relaxed"
+            >
               {subtext}
-            </p>
+            </motion.p>
           )}
-          <a
-            href={ctaHref}
-            className="mt-6 md:mt-8 inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-lg bg-[#C9A84C] text-[#0A1628] hover:bg-[#D4B85E] active:bg-[#B8953E] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:ring-offset-2"
+
+          {/* CTA with moving border */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.1, ease: 'easeOut' }}
+            className="mt-6 md:mt-8 inline-block"
           >
-            {ctaText}
-          </a>
-        </motion.div>
+            <MovingBorder
+              as="a"
+              href={ctaHref}
+              duration={4}
+              containerClassName="rounded-lg"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold bg-[#C9A84C] text-[#0A1628] hover:bg-[#D4B85E] active:bg-[#B8953E] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#C9A84C] focus:ring-offset-2"
+            >
+              {ctaText}
+            </MovingBorder>
+          </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}

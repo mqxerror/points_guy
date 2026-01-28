@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { GlowCard } from '@/components/ui/aceternity/glow-card';
 
 interface ProgramCardsProps {
   excludeSlug?: string;
@@ -39,30 +40,32 @@ export function ProgramCards({ excludeSlug, title }: ProgramCardsProps) {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Link
-                href={`/${program.slug}`}
-                className="group block rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-1"
-              >
-                {/* Image */}
-                <div className="relative aspect-[16/9] bg-[#132240] overflow-hidden">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                    style={{ backgroundImage: `url(${program.heroImage})` }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/70 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <h3 className="text-xl font-semibold text-white">{program.name}</h3>
+              <GlowCard>
+                <Link
+                  href={`/${program.slug}`}
+                  className="group block overflow-hidden transition-all duration-200 hover:-translate-y-1"
+                >
+                  {/* Image */}
+                  <div className="relative aspect-[16/9] bg-[#132240] overflow-hidden">
+                    <div
+                      className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                      style={{ backgroundImage: `url(${program.heroImage})` }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0A1628]/70 to-transparent" />
+                    <div className="absolute bottom-4 left-4">
+                      <h3 className="text-xl font-semibold text-white">{program.name}</h3>
+                    </div>
                   </div>
-                </div>
 
-                {/* Content */}
-                <div className="p-5 bg-white">
-                  <p className="text-[#475569] text-sm leading-relaxed">{program.tagline}</p>
-                  <span className="inline-flex items-center gap-1 mt-3 text-sm font-medium text-[#C9A84C] group-hover:gap-2 transition-all">
-                    Explore <ArrowRight className="h-4 w-4" />
-                  </span>
-                </div>
-              </Link>
+                  {/* Content */}
+                  <div className="p-5">
+                    <p className="text-[#475569] text-sm leading-relaxed">{program.tagline}</p>
+                    <span className="inline-flex items-center gap-1 mt-3 text-sm font-medium text-[#C9A84C] group-hover:gap-2 transition-all">
+                      Explore <ArrowRight className="h-4 w-4" />
+                    </span>
+                  </div>
+                </Link>
+              </GlowCard>
             </motion.div>
           ))}
         </div>

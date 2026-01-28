@@ -6,6 +6,8 @@ import { LeadCaptureForm } from '@/components/forms/LeadCaptureForm';
 import { FAQPageJsonLd, ProductJsonLd } from '@/components/seo/JsonLd';
 import { UrgencyBanner } from '@/components/ui/UrgencyBanner';
 import { PROGRAMS } from '@/lib/constants';
+import { PortugalProperties } from '@/components/sections/PortugalProperties';
+import { PortugalTimeline } from '@/components/sections/PortugalTimeline';
 import Image from 'next/image';
 import { BadgeCheck, Clock, Shield } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -155,41 +157,7 @@ export default function PortugalPage() {
             </span>
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {PROPERTIES.map((property) => (
-              <div key={property.name} className="bg-white rounded-xl overflow-hidden shadow-sm">
-                <div className="relative aspect-[16/10] bg-[#132240]">
-                  <Image
-                    src={property.image}
-                    alt={property.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute top-3 right-3">
-                    <span className={`inline-flex px-2.5 py-1 rounded-full text-xs font-medium ${property.status === 'Operating' ? 'bg-[#22C55E]/90 text-white' : 'bg-[#C9A84C]/90 text-white'}`}>
-                      {property.status}
-                    </span>
-                  </div>
-                </div>
-                <div className="p-5">
-                  <p className="text-xs font-medium text-[#C9A84C] mb-1">{property.brand}</p>
-                  <h3 className="font-semibold text-[#0A1628] mb-1">{property.name}</h3>
-                  <p className="text-sm text-[#94A3B8] mb-3">{property.location}</p>
-                  <div className="flex flex-wrap gap-1.5 mb-3">
-                    {property.features.map((f) => (
-                      <span key={f} className="text-xs bg-[#FAFAF5] text-[#475569] px-2 py-0.5 rounded">
-                        {f}
-                      </span>
-                    ))}
-                  </div>
-                  <p className="text-xs text-[#94A3B8]">
-                    Fund investment: <span className="text-[#0A1628] font-medium">{property.fundInvestment}</span>
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <PortugalProperties properties={PROPERTIES} />
         </div>
       </section>
 
@@ -202,25 +170,7 @@ export default function PortugalPage() {
           <p className="text-[#475569] text-center mb-12 max-w-xl mx-auto">
             A simple, guided process from consultation to approval. We handle everything.
           </p>
-          <div className="max-w-3xl mx-auto space-y-0">
-            {PROCESS_STEPS.map((s, idx) => (
-              <div key={s.step} className="flex gap-4 md:gap-6">
-                <div className="flex flex-col items-center">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#C9A84C] text-white font-bold text-sm shrink-0">
-                    {s.step}
-                  </div>
-                  {idx < PROCESS_STEPS.length - 1 && <div className="w-px h-full bg-[#C9A84C]/20 my-1" />}
-                </div>
-                <div className="pb-8">
-                  <h3 className="font-semibold text-[#0A1628]">{s.title}</h3>
-                  <p className="text-[#475569] text-sm mt-1">{s.description}</p>
-                  <span className="inline-flex items-center gap-1 text-xs text-[#94A3B8] mt-1.5">
-                    <Clock className="h-3 w-3" /> {s.duration}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
+          <PortugalTimeline steps={PROCESS_STEPS} />
         </div>
       </section>
 

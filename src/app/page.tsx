@@ -3,11 +3,14 @@ import { ProgramCards } from '@/components/sections/ProgramCards';
 import { ProgramComparison } from '@/components/sections/ProgramComparison';
 import { ProgramQuiz } from '@/components/sections/ProgramQuiz';
 import { LeadCaptureForm } from '@/components/forms/LeadCaptureForm';
+import { HomeSparkles } from '@/components/sections/HomeSparkles';
+import { HomeWorldMap } from '@/components/sections/HomeWorldMap';
+import { HomePartners } from '@/components/sections/HomePartners';
 import Image from 'next/image';
 import { Globe, Home, MapPin, Shield, Users, TrendingUp, BadgeCheck, Banknote } from 'lucide-react';
 
 const STATS = [
-  { value: '€1.3B+', label: 'Invested' },
+  { value: '\u20AC1.3B+', label: 'Invested' },
   { value: '4,100+', label: 'Families Served' },
   { value: '34', label: 'Hotels & Projects' },
   { value: '35+', label: 'Years Experience' },
@@ -25,7 +28,7 @@ const PROGRAM_HIGHLIGHTS = [
   {
     name: 'Portugal Golden Visa',
     href: '/portugal',
-    investment: 'From €500,000',
+    investment: 'From \u20AC500,000',
     timeline: '18-24 months to residency',
     icon: Globe,
     highlights: [
@@ -43,7 +46,7 @@ const PROGRAM_HIGHLIGHTS = [
   {
     name: 'Greece Golden Visa',
     href: '/greece',
-    investment: 'From €250,000',
+    investment: 'From \u20AC250,000',
     timeline: '4-6 months to residency',
     icon: Home,
     highlights: [
@@ -55,7 +58,7 @@ const PROGRAM_HIGHLIGHTS = [
       'Family inclusion at no extra cost',
     ],
     description:
-      'Own a premium residential unit at Keranis Residence in Piraeus, Athens — the largest mixed-use development in the area. Professional property management and guaranteed rental income included.',
+      'Own a premium residential unit at Keranis Residence in Piraeus, Athens \u2014 the largest mixed-use development in the area. Professional property management and guaranteed rental income included.',
     image: '/images/greece/hero.jpg',
   },
   {
@@ -66,7 +69,7 @@ const PROGRAM_HIGHLIGHTS = [
     icon: MapPin,
     highlights: [
       'Permanent residency from day one',
-      'Territorial tax system — foreign income tax-free',
+      'Territorial tax system \u2014 foreign income tax-free',
       'US dollar economy, no currency risk',
       'Visa-free access to 142 countries',
       'Path to citizenship after 5 years',
@@ -83,27 +86,19 @@ export default function HomePage() {
     <>
       <Hero
         headline="Your Path to Global Residency"
-        subtext="Explore investment immigration programs in Portugal, Greece, and Panama — curated by The Points Guy and powered by Mercan Group."
+        subtext="Explore investment immigration programs in Portugal, Greece, and Panama \u2014 curated by The Points Guy and powered by Mercan Group."
         imageSrc="/images/hero/main.jpg"
       />
 
-      {/* Trust Stats Bar */}
-      <section className="bg-[#0A1628] py-8 md:py-10">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 text-center">
-            {STATS.map((stat) => (
-              <div key={stat.label}>
-                <p className="text-2xl md:text-3xl font-bold text-[#C9A84C]">{stat.value}</p>
-                <p className="text-white/60 text-sm mt-1">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Trust Stats Bar with Sparkles */}
+      <HomeSparkles stats={STATS} />
 
       <ProgramCards title="Explore Our Programs" />
 
       <ProgramComparison />
+
+      {/* World Map Section */}
+      <HomeWorldMap />
 
       {/* Detailed Program Highlights */}
       <section className="py-16 md:py-24 bg-[#FAFAF5]">
@@ -196,7 +191,7 @@ export default function HomePage() {
                 35+ Years of Global Expertise
               </p>
               <p className="text-[#475569] leading-relaxed mb-4">
-                Founded in 1989, Mercan Group is a global leader in investment immigration. With over €1.3 billion raised in direct Golden Visa investments and 4,100+ investor families served, Mercan provides end-to-end support from initial consultation through residency approval.
+                Founded in 1989, Mercan Group is a global leader in investment immigration. With over &euro;1.3 billion raised in direct Golden Visa investments and 4,100+ investor families served, Mercan provides end-to-end support from initial consultation through residency approval.
               </p>
               <p className="text-[#475569] leading-relaxed mb-6">
                 Mercan is the largest internationally branded hotel operator in Portugal, managing 34 hotel properties and projects across Portugal and Greece in partnership with the world&apos;s leading hospitality brands. Every investment is fully regulated, independently audited, and backed by a team of 900+ professionals worldwide.
@@ -225,19 +220,8 @@ export default function HomePage() {
                 <p className="text-sm font-medium text-[#94A3B8] uppercase tracking-wider mb-6">
                   Trusted Hotel Partners
                 </p>
-                <div className="grid grid-cols-3 gap-6 items-center">
-                  {PARTNERS.map((partner) => (
-                    <div key={partner.name} className="flex items-center justify-center">
-                      <Image
-                        src={partner.src}
-                        alt={partner.name}
-                        width={120}
-                        height={48}
-                        className="opacity-60 hover:opacity-100 transition-opacity object-contain h-10"
-                      />
-                    </div>
-                  ))}
-                </div>
+                {/* Infinite scrolling partner logos */}
+                <HomePartners partners={PARTNERS} />
               </div>
             </div>
           </div>

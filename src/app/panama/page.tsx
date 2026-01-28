@@ -6,6 +6,8 @@ import { LeadCaptureForm } from '@/components/forms/LeadCaptureForm';
 import { FAQPageJsonLd, ProductJsonLd } from '@/components/seo/JsonLd';
 import { UrgencyBanner } from '@/components/ui/UrgencyBanner';
 import { PROGRAMS } from '@/lib/constants';
+import { PanamaProjects } from '@/components/sections/PanamaProjects';
+import { PortugalTimeline } from '@/components/sections/PortugalTimeline';
 import Image from 'next/image';
 import { BadgeCheck, Clock, DollarSign, Globe, Shield, Briefcase, Building } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -188,25 +190,7 @@ export default function PanamaPage() {
           <p className="text-[#475569] text-center mb-12 max-w-xl mx-auto">
             Landmark hospitality developments in Panama City — following Mercan&apos;s proven model from 34 projects in Portugal and Greece.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {PROJECTS.map((project) => (
-              <div key={project.name} className="bg-[#FAFAF5] rounded-xl overflow-hidden">
-                <div className="relative aspect-[16/10]">
-                  <Image src={project.image} alt={project.name} fill className="object-cover" sizes="50vw" />
-                </div>
-                <div className="p-6">
-                  <p className="text-xs font-medium text-[#C9A84C] mb-1">{project.brand}</p>
-                  <h3 className="text-lg font-semibold text-[#0A1628] mb-2">{project.name}</h3>
-                  <p className="text-[#475569] text-sm leading-relaxed mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.features.map((f) => (
-                      <span key={f} className="text-xs bg-white text-[#475569] px-2.5 py-1 rounded">{f}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <PanamaProjects projects={PROJECTS} />
 
           {/* Additional Project Images */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-8 max-w-5xl mx-auto">
@@ -290,25 +274,7 @@ export default function PanamaPage() {
           <p className="text-[#475569] text-center mb-12 max-w-xl mx-auto">
             One of the fastest residency processes globally — from consultation to permanent residency in weeks, not months.
           </p>
-          <div className="max-w-3xl mx-auto space-y-0">
-            {PROCESS_STEPS.map((s, idx) => (
-              <div key={s.step} className="flex gap-4 md:gap-6">
-                <div className="flex flex-col items-center">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#C9A84C] text-white font-bold text-sm shrink-0">
-                    {s.step}
-                  </div>
-                  {idx < PROCESS_STEPS.length - 1 && <div className="w-px h-full bg-[#C9A84C]/20 my-1" />}
-                </div>
-                <div className="pb-8">
-                  <h3 className="font-semibold text-[#0A1628]">{s.title}</h3>
-                  <p className="text-[#475569] text-sm mt-1">{s.description}</p>
-                  <span className="inline-flex items-center gap-1 text-xs text-[#94A3B8] mt-1.5">
-                    <Clock className="h-3 w-3" /> {s.duration}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
+          <PortugalTimeline steps={PROCESS_STEPS} />
         </div>
       </section>
 

@@ -93,51 +93,78 @@ export function ProgramComparison() {
 
         {/* Desktop table */}
         <div className="hidden md:block overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-[#E2E8F0]">
-                <th className="text-left py-4 pr-4 text-[#94A3B8] font-medium w-1/4">Feature</th>
-                <th className="text-center py-4 px-4 font-semibold text-[#0A1628]">
-                  <a href="/portugal" className="hover:text-[#C9A84C] transition-colors">Portugal</a>
-                </th>
-                <th className="text-center py-4 px-4 font-semibold text-[#0A1628]">
-                  <a href="/greece" className="hover:text-[#C9A84C] transition-colors">Greece</a>
-                </th>
-                <th className="text-center py-4 px-4 font-semibold text-[#0A1628]">
-                  <a href="/panama" className="hover:text-[#C9A84C] transition-colors">Panama</a>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {COMPARISON.map((row) => (
-                <tr key={row.feature} className="border-b border-[#F1F5F9]">
-                  <td className="py-3.5 pr-4 text-[#475569] font-medium">{row.feature}</td>
-                  <td className="py-3.5 px-4 text-center text-[#1E293B]"><Cell value={row.portugal} /></td>
-                  <td className="py-3.5 px-4 text-center text-[#1E293B]"><Cell value={row.greece} /></td>
-                  <td className="py-3.5 px-4 text-center text-[#1E293B]"><Cell value={row.panama} /></td>
+          <div className="bg-[#FAFAF5] rounded-2xl border border-[#E2E8F0] overflow-hidden">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-[#0A1628]">
+                  <th className="text-left py-5 px-6 text-white/60 font-medium w-[28%] text-xs uppercase tracking-wider">Feature</th>
+                  <th className="text-center py-5 px-6 w-[24%]">
+                    <a href="/portugal" className="group">
+                      <span className="text-white font-semibold group-hover:text-[#C9A84C] transition-colors text-base">Portugal</span>
+                      <span className="block text-white/40 text-xs mt-0.5 font-normal">Golden Visa</span>
+                    </a>
+                  </th>
+                  <th className="text-center py-5 px-6 w-[24%]">
+                    <a href="/greece" className="group">
+                      <span className="text-white font-semibold group-hover:text-[#C9A84C] transition-colors text-base">Greece</span>
+                      <span className="block text-white/40 text-xs mt-0.5 font-normal">Golden Visa</span>
+                    </a>
+                  </th>
+                  <th className="text-center py-5 px-6 w-[24%]">
+                    <a href="/panama" className="group">
+                      <span className="text-white font-semibold group-hover:text-[#C9A84C] transition-colors text-base">Panama</span>
+                      <span className="block text-white/40 text-xs mt-0.5 font-normal">Qualified Investor</span>
+                    </a>
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {COMPARISON.map((row, idx) => (
+                  <tr
+                    key={row.feature}
+                    className={idx % 2 === 0 ? 'bg-white' : 'bg-[#FAFAF5]'}
+                  >
+                    <td className="py-4 px-6 text-[#475569] font-medium">{row.feature}</td>
+                    <td className="py-4 px-6 text-center text-[#1E293B]"><Cell value={row.portugal} /></td>
+                    <td className="py-4 px-6 text-center text-[#1E293B]"><Cell value={row.greece} /></td>
+                    <td className="py-4 px-6 text-center text-[#1E293B]"><Cell value={row.panama} /></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         {/* Mobile cards */}
-        <div className="md:hidden space-y-6">
-          {(['portugal', 'greece', 'panama'] as const).map((prog) => (
-            <a key={prog} href={`/${prog}`} className="block bg-[#FAFAF5] rounded-xl p-5">
-              <h3 className="font-semibold text-[#0A1628] mb-3 capitalize">{prog}</h3>
-              <div className="space-y-2">
-                {COMPARISON.map((row) => (
-                  <div key={row.feature} className="flex justify-between text-sm">
-                    <span className="text-[#94A3B8]">{row.feature}</span>
-                    <span className="text-[#1E293B] font-medium text-right">
-                      {typeof row[prog] === 'boolean' ? (row[prog] ? 'Yes' : 'No') : row[prog]}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </a>
-          ))}
+        <div className="md:hidden space-y-4">
+          {(['portugal', 'greece', 'panama'] as const).map((prog) => {
+            const labels = { portugal: 'Portugal Golden Visa', greece: 'Greece Golden Visa', panama: 'Panama Qualified Investor' };
+            return (
+              <a key={prog} href={`/${prog}`} className="block bg-[#FAFAF5] rounded-xl border border-[#E2E8F0] overflow-hidden">
+                <div className="bg-[#0A1628] px-5 py-3">
+                  <h3 className="font-semibold text-white">{labels[prog]}</h3>
+                </div>
+                <div className="p-5 space-y-3">
+                  {COMPARISON.map((row) => (
+                    <div key={row.feature} className="flex justify-between text-sm items-center">
+                      <span className="text-[#94A3B8]">{row.feature}</span>
+                      <span className="text-[#1E293B] font-medium text-right">
+                        {typeof row[prog] === 'boolean' ? (
+                          row[prog] ? (
+                            <BadgeCheck className="h-4 w-4 text-[#22C55E] inline" />
+                          ) : (
+                            <X className="h-4 w-4 text-[#94A3B8] inline" />
+                          )
+                        ) : (
+                          row[prog]
+                        )}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>

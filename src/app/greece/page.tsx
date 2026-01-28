@@ -6,6 +6,8 @@ import { LeadCaptureForm } from '@/components/forms/LeadCaptureForm';
 import { FAQPageJsonLd, ProductJsonLd } from '@/components/seo/JsonLd';
 import { UrgencyBanner } from '@/components/ui/UrgencyBanner';
 import { PROGRAMS } from '@/lib/constants';
+import { GreeceUnitCards } from '@/components/sections/GreeceUnitCards';
+import { PortugalTimeline } from '@/components/sections/PortugalTimeline';
 import Image from 'next/image';
 import { BadgeCheck, Clock } from 'lucide-react';
 import type { Metadata } from 'next';
@@ -169,28 +171,7 @@ export default function GreecePage() {
           <h2 className="text-2xl md:text-3xl font-semibold text-[#0A1628] text-center mb-12 tracking-[-0.02em]">
             Available Unit Types
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <div className="bg-[#FAFAF5] rounded-xl overflow-hidden">
-              <div className="relative aspect-[16/10]">
-                <Image src="/images/greece/studio.jpg" alt="Studio apartment" fill className="object-cover" sizes="50vw" />
-              </div>
-              <div className="p-5">
-                <h3 className="font-semibold text-[#0A1628]">Studio Units</h3>
-                <p className="text-[#475569] text-sm mt-1">Modern studio apartments ideal for investment. Professional management with guaranteed rental returns.</p>
-                <p className="text-[#C9A84C] font-semibold text-sm mt-3">From €250,000</p>
-              </div>
-            </div>
-            <div className="bg-[#FAFAF5] rounded-xl overflow-hidden">
-              <div className="relative aspect-[16/10]">
-                <Image src="/images/greece/one-bedroom.jpg" alt="One bedroom apartment" fill className="object-cover" sizes="50vw" />
-              </div>
-              <div className="p-5">
-                <h3 className="font-semibold text-[#0A1628]">One-Bedroom Units</h3>
-                <p className="text-[#475569] text-sm mt-1">Spacious one-bedroom apartments with premium finishes. Higher rental yield potential in prime Piraeus location.</p>
-                <p className="text-[#C9A84C] font-semibold text-sm mt-3">From €300,000</p>
-              </div>
-            </div>
-          </div>
+          <GreeceUnitCards />
         </div>
       </section>
 
@@ -203,25 +184,7 @@ export default function GreecePage() {
           <p className="text-[#475569] text-center mb-12 max-w-xl mx-auto">
             From consultation to residency in as little as 9-10 months. We guide you every step.
           </p>
-          <div className="max-w-3xl mx-auto space-y-0">
-            {PROCESS_STEPS.map((s, idx) => (
-              <div key={s.step} className="flex gap-4 md:gap-6">
-                <div className="flex flex-col items-center">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#C9A84C] text-white font-bold text-sm shrink-0">
-                    {s.step}
-                  </div>
-                  {idx < PROCESS_STEPS.length - 1 && <div className="w-px h-full bg-[#C9A84C]/20 my-1" />}
-                </div>
-                <div className="pb-8">
-                  <h3 className="font-semibold text-[#0A1628]">{s.title}</h3>
-                  <p className="text-[#475569] text-sm mt-1">{s.description}</p>
-                  <span className="inline-flex items-center gap-1 text-xs text-[#94A3B8] mt-1.5">
-                    <Clock className="h-3 w-3" /> {s.duration}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
+          <PortugalTimeline steps={PROCESS_STEPS} />
         </div>
       </section>
 
