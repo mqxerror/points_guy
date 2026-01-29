@@ -28,7 +28,7 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isDashboard = pathname?.startsWith('/dashboard');
+  const isDashboard = false;
 
   return (
     <>

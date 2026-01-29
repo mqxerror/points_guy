@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/dashboard/'],
+        disallow: ['/api/', '/admin/'],
       },
     ],
     sitemap: 'https://thepointsguy.mercan.com/sitemap.xml',
