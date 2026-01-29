@@ -17,12 +17,13 @@ const STATS = [
 ];
 
 const PARTNERS = [
-  { name: 'IHG Hotels & Resorts', src: '/images/partners/ihg.png' },
-  { name: 'Hilton Hotels & Resorts', src: '/images/partners/hilton.png' },
   { name: 'Wyndham Hotels & Resorts', src: '/images/partners/wyndham.png' },
-  { name: 'Hard Rock Hotel', src: '/images/partners/hardrock.png' },
-  { name: 'International Atlantic Services', src: '/images/partners/ias.png' },
   { name: 'Ace Hospitality Management', src: '/images/partners/ahm.png' },
+  { name: 'Hard Rock Hotel', src: '/images/partners/hardrock.png' },
+  { name: 'Hilton Hotels & Resorts', src: '/images/partners/hilton.png' },
+  { name: 'IHG Hotels & Resorts', src: '/images/partners/ihg.png' },
+  { name: 'Marriott International', src: '/images/partners/marriott.png' },
+  { name: 'International Atlantic Services', src: '/images/partners/ias.png' },
 ];
 
 const PROGRAM_HIGHLIGHTS = [
