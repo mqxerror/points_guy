@@ -48,16 +48,16 @@ export function LeadTable({ leads }: LeadTableProps) {
   ];
 
   return (
-    <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-      <div className="overflow-x-auto">
-        <table className="w-full">
+    <div className="overflow-x-auto">
+      <div className="bg-[#FAFAF5] rounded-2xl border border-[#E2E8F0] overflow-hidden">
+        <table className="w-full text-sm">
           <thead>
-            <tr className="border-b border-[#F1F5F9]">
+            <tr className="bg-[#0A1628]">
               {columns.map((col) => (
-                <th key={col.key} className="text-left px-4 py-3">
+                <th key={col.key} className="text-left py-5 px-6">
                   <button
                     onClick={() => handleSort(col.key)}
-                    className="flex items-center gap-1 text-xs font-semibold text-[#94A3B8] uppercase tracking-wider hover:text-[#475569] transition-colors"
+                    className="flex items-center gap-1.5 text-xs font-medium text-white/60 uppercase tracking-wider hover:text-[#C9A84C] transition-colors"
                   >
                     {col.label}
                     <ArrowUpDown className="h-3 w-3" />
@@ -72,16 +72,16 @@ export function LeadTable({ leads }: LeadTableProps) {
                 key={lead.id}
                 className={index % 2 === 0 ? 'bg-white' : 'bg-[#FAFAF5]'}
               >
-                <td className="px-4 py-3 text-sm text-[#1E293B] font-medium">
+                <td className="py-4 px-6 text-[#1E293B] font-medium">
                   {lead.fullName}
                 </td>
-                <td className="px-4 py-3 text-sm text-[#475569]">{lead.email}</td>
-                <td className="px-4 py-3">
+                <td className="py-4 px-6 text-[#475569]">{lead.email}</td>
+                <td className="py-4 px-6">
                   <span className="inline-flex px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#C9A84C]/10 text-[#C9A84C] capitalize">
                     {lead.program}
                   </span>
                 </td>
-                <td className="px-4 py-3 text-sm text-[#94A3B8]">
+                <td className="py-4 px-6 text-[#94A3B8]">
                   {new Date(lead.createdAt).toLocaleDateString()}
                 </td>
               </tr>

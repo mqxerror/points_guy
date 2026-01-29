@@ -30,8 +30,10 @@ export function FAQAccordion({ faqs, bgClass = 'bg-[#FAFAF5]' }: FAQAccordionPro
                 onClick={() => setOpenIndex(isOpen ? null : idx)}
                 className="w-full flex items-center justify-between p-5 md:p-6 text-left"
                 aria-expanded={isOpen}
+                aria-controls={`faq-panel-${idx}`}
+                id={`faq-trigger-${idx}`}
               >
-                <h3 className="font-semibold text-[#0A1628] pr-4">{faq.q}</h3>
+                <span className="font-semibold text-[#0A1628] pr-4">{faq.q}</span>
                 <motion.div
                   animate={{ rotate: isOpen ? 180 : 0 }}
                   transition={{ duration: 0.2 }}
@@ -43,6 +45,9 @@ export function FAQAccordion({ faqs, bgClass = 'bg-[#FAFAF5]' }: FAQAccordionPro
               <AnimatePresence initial={false}>
                 {isOpen && (
                   <motion.div
+                    id={`faq-panel-${idx}`}
+                    role="region"
+                    aria-labelledby={`faq-trigger-${idx}`}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}

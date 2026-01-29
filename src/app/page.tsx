@@ -10,10 +10,10 @@ import Image from 'next/image';
 import { Globe, Home, MapPin, Shield, Users, TrendingUp, BadgeCheck, Banknote } from 'lucide-react';
 
 const STATS = [
-  { value: '\u20AC1.3B+', label: 'Invested' },
+  { value: '\u20AC1.3B+', label: 'Invested Since 1988' },
   { value: '4,100+', label: 'Families Served' },
   { value: '34', label: 'Hotels & Projects' },
-  { value: '35+', label: 'Years Experience' },
+  { value: '100%', label: 'Visa Approval Rate' },
 ];
 
 const PARTNERS = [

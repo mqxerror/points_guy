@@ -32,6 +32,7 @@ export function PortugalProperties({ properties }: PortugalPropertiesProps) {
             <button
               type="button"
               onClick={() => setSelectedProperty(property)}
+              aria-label={`View details: ${property.name}`}
               className="w-full text-left cursor-pointer group transition-all duration-200 hover:-translate-y-1"
             >
               <div className="relative aspect-[16/10] bg-[#132240]">

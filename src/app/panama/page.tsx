@@ -94,7 +94,7 @@ export default function PanamaPage() {
       <ProductJsonLd name="Panama Qualified Investor Visa" description="Permanent residency through branded hospitality investment in Panama" price="300000" currency="USD" />
       <Hero
         headline="Permanent Residency in the Americas' Most Strategic Hub"
-        subtext="Panama Qualified Investor Program from $300,000 — permanent residency in 30 days, territorial tax system, US dollar economy. Mercan is Panama's official strategic partner."
+        badges={['From $300,000', 'Residency in 30 Days', 'Territorial Tax System', 'US Dollar Economy']}
         imageSrc={program.heroImage}
       />
 
@@ -108,7 +108,7 @@ export default function PanamaPage() {
             </div>
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">30 Days</p>
-              <p className="text-white/60 text-xs mt-0.5">To Residency</p>
+              <p className="text-white/60 text-xs mt-0.5">To Permanent Residency</p>
             </div>
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">142</p>
@@ -294,6 +294,8 @@ export default function PanamaPage() {
           <UrgencyBanner
             message="New program — early investors get priority processing"
             subtext="Panama's Qualified Investor Program launched in October 2025. Mercan's first allocation of Pullman Hotel units is limited."
+            progress={35}
+            progressLabel="First allocation"
           />
         </div>
       </section>

@@ -30,6 +30,7 @@ export function PanamaProjects({ projects }: PanamaProjectsProps) {
             <button
               type="button"
               onClick={() => setSelectedProject(project)}
+              aria-label={`View details: ${project.name}`}
               className="w-full text-left cursor-pointer group transition-all duration-200 hover:-translate-y-1"
             >
               <div className="relative aspect-[16/10]">

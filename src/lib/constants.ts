@@ -33,7 +33,7 @@ export const PROGRAMS: Program[] = [
     investmentDetails: [
       { label: 'Minimum Investment', value: '€500,000' },
       { label: 'Investment Type', value: 'Regulated Hospitality Fund' },
-      { label: 'Residency Timeline', value: '6-8 months' },
+      { label: 'Residency Timeline', value: '18-24 months (total process)' },
       { label: 'Path to Citizenship', value: '5 years' },
       { label: 'Buyback Guarantee', value: 'After 6 years' },
       { label: 'Minimum Stay', value: '7 days/year average' },

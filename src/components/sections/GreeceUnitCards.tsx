@@ -53,6 +53,7 @@ export function GreeceUnitCards() {
             <button
               type="button"
               onClick={() => setSelectedUnit(unit)}
+              aria-label={`View details: ${unit.title}`}
               className="w-full text-left cursor-pointer group transition-all duration-200 hover:-translate-y-1"
             >
               <div className="relative aspect-[16/10]">

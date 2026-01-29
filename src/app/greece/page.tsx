@@ -67,7 +67,7 @@ export default function GreecePage() {
       <ProductJsonLd name="Greece Golden Visa" description="EU residency through direct property ownership in Athens" price="250000" currency="EUR" />
       <Hero
         headline="Own a Piece of Athens. And a Future in Europe."
-        subtext="Greece Golden Visa from €250,000 — Europe's most affordable path to EU residency. Direct property ownership, 3% guaranteed returns, full family included."
+        badges={['From €250,000', '4-6 Month Residency', '3% Guaranteed Returns', 'Full Family Included']}
         imageSrc={program.heroImage}
       />
 
@@ -85,7 +85,7 @@ export default function GreecePage() {
             </div>
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">100%</p>
-              <p className="text-white/60 text-xs mt-0.5">Success Rate</p>
+              <p className="text-white/60 text-xs mt-0.5">Visa Approval Rate</p>
             </div>
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">4-6 mo</p>
@@ -204,6 +204,8 @@ export default function GreecePage() {
           <UrgencyBanner
             message="Greece is expected to raise the Golden Visa threshold"
             subtext="Lock in the current €250,000 minimum before the anticipated increase. Limited units available at Keranis Residence."
+            progress={65}
+            progressLabel="Units reserved"
           />
         </div>
       </section>

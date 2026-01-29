@@ -61,7 +61,7 @@ export function ProgramCards({ excludeSlug, title }: ProgramCardsProps) {
                   <div className="p-5">
                     <p className="text-[#475569] text-sm leading-relaxed">{program.tagline}</p>
                     <span className="inline-flex items-center gap-1 mt-3 text-sm font-medium text-[#C9A84C] group-hover:gap-2 transition-all">
-                      Explore <ArrowRight className="h-4 w-4" />
+                      Explore {program.name} <ArrowRight className="h-4 w-4" />
                     </span>
                   </div>
                 </Link>

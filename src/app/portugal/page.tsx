@@ -88,7 +88,7 @@ export default function PortugalPage() {
       <ProductJsonLd name="Portugal Golden Visa" description="EU residency through CMVM-regulated hospitality fund investment" price="500000" currency="EUR" />
       <Hero
         headline="Give Your Family the Freedom of Europe"
-        subtext="Portugal Golden Visa from €500,000 — residency in 18 months, eligible for citizenship after 5 years. Full family included. 2% fixed annual returns."
+        badges={['From €500,000', '18-Month Residency', 'Full Family Included', '2% Fixed Returns']}
         imageSrc={program.heroImage}
       />
 
@@ -98,15 +98,15 @@ export default function PortugalPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">€1.3B+</p>
-              <p className="text-white/60 text-xs mt-0.5">Invested</p>
+              <p className="text-white/60 text-xs mt-0.5">Invested Since 1988</p>
             </div>
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">4,100+</p>
-              <p className="text-white/60 text-xs mt-0.5">Families</p>
+              <p className="text-white/60 text-xs mt-0.5">Families Served</p>
             </div>
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">100%</p>
-              <p className="text-white/60 text-xs mt-0.5">Success Rate</p>
+              <p className="text-white/60 text-xs mt-0.5">Visa Approval Rate</p>
             </div>
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">35+</p>
@@ -190,6 +190,8 @@ export default function PortugalPage() {
           <UrgencyBanner
             message="Portugal Golden Visa fund allocation is limited"
             subtext="MPEF II has a fixed capacity of €121M. Secure your allocation before the fund closes to new subscriptions."
+            progress={78}
+            progressLabel="Fund capacity"
           />
         </div>
       </section>

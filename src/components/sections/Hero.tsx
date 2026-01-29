@@ -10,13 +10,14 @@ import { MovingBorder } from '@/components/ui/aceternity/moving-border';
 interface HeroProps {
   headline: string;
   subtext?: string;
+  badges?: string[];
   imageSrc?: string;
   showScrollIndicator?: boolean;
   ctaText?: string;
   ctaHref?: string;
 }
 
-export function Hero({ headline, subtext, imageSrc, showScrollIndicator = true, ctaText = 'Book Free Consultation', ctaHref = '#lead-form' }: HeroProps) {
+export function Hero({ headline, subtext, badges, imageSrc, showScrollIndicator = true, ctaText = 'Book Free Consultation', ctaHref = '#lead-form' }: HeroProps) {
   return (
     <section className="relative min-h-screen md:min-h-[80vh] flex items-end md:items-center overflow-hidden">
       {/* Background image */}
@@ -48,7 +49,7 @@ export function Hero({ headline, subtext, imageSrc, showScrollIndicator = true, 
           />
 
           {/* Subtext with delayed fade-in */}
-          {subtext && (
+          {subtext && !badges && (
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -57,6 +58,25 @@ export function Hero({ headline, subtext, imageSrc, showScrollIndicator = true, 
             >
               {subtext}
             </motion.p>
+          )}
+
+          {/* Badge pills */}
+          {badges && badges.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8, ease: 'easeOut' }}
+              className="mt-4 md:mt-6 flex flex-wrap gap-2 md:gap-3"
+            >
+              {badges.map((badge) => (
+                <span
+                  key={badge}
+                  className="inline-flex items-center px-3.5 py-1.5 rounded-full text-sm font-medium bg-white/10 text-white backdrop-blur-sm border border-white/20"
+                >
+                  {badge}
+                </span>
+              ))}
+            </motion.div>
           )}
 
           {/* CTA with moving border */}

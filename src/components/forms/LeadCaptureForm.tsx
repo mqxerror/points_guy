@@ -80,9 +80,18 @@ export function LeadCaptureForm({ defaultProgram }: LeadCaptureFormProps) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} noValidate>
       <div className="mb-4">
-        <p className="text-sm text-[#94A3B8]" aria-live="polite">
-          Step {step} of 2
-        </p>
+        <div className="flex items-center justify-between">
+          <p className="text-sm text-[#94A3B8]" aria-live="polite">
+            Step {step} of 2
+          </p>
+          {step === 1 && (
+            <p className="text-xs text-[#94A3B8]">Next: phone &amp; preferences</p>
+          )}
+        </div>
+        <div className="flex gap-1.5 mt-2">
+          <div className={`h-1 rounded-full flex-1 ${step >= 1 ? 'bg-[#C9A84C]' : 'bg-[#E2E8F0]'}`} />
+          <div className={`h-1 rounded-full flex-1 ${step >= 2 ? 'bg-[#C9A84C]' : 'bg-[#E2E8F0]'}`} />
+        </div>
       </div>
 
       <AnimatePresence mode="wait">
