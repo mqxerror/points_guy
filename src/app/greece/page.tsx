@@ -32,6 +32,12 @@ const OUTCOMES = [
   { title: 'No Minimum Stay', detail: 'Maintain EU residency without living in Greece', timeline: 'Ongoing' },
 ];
 
+const INVESTMENT_ROUTES = [
+  { route: 'Real Estate (Residential)', minimum: '€250,000', holding: '5 years', note: 'Direct property ownership with title deed in your name', recommended: true },
+  { route: 'Real Estate (Commercial)', minimum: '€250,000', holding: '5 years', note: 'Commercial properties in designated areas' },
+  { route: 'Government Bonds', minimum: '€400,000', holding: '3 years', note: 'Greek government bonds or corporate securities' },
+];
+
 const PROPERTY_FEATURES = [
   { label: 'Units', value: '408 premium residential' },
   { label: 'Starting Price', value: '€250,000' },
@@ -113,6 +119,29 @@ export default function GreecePage() {
                 <span className="inline-flex items-center gap-1 text-xs font-medium text-[#C9A84C]">
                   <Clock className="h-3 w-3" /> {outcome.timeline}
                 </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Investment Routes */}
+      <section className="py-16 md:py-24 bg-[#FAFAF5]">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#0A1628] text-center mb-4 tracking-[-0.02em]">
+            Investment Routes
+          </h2>
+          <p className="text-[#475569] text-center mb-12 max-w-xl mx-auto">
+            Multiple qualifying routes — Mercan specializes in residential real estate, the most popular and affordable path.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {INVESTMENT_ROUTES.map((option) => (
+              <div key={option.route} className={`rounded-xl p-6 ${option.recommended ? 'bg-[#0A1628] text-white ring-2 ring-[#C9A84C]' : 'bg-white'}`}>
+                {option.recommended && <p className="text-xs font-medium text-[#C9A84C] mb-3 uppercase tracking-wider">Recommended</p>}
+                <h3 className={`font-semibold mb-1 ${option.recommended ? 'text-white' : 'text-[#0A1628]'}`}>{option.route}</h3>
+                <p className={`text-2xl font-bold mb-2 ${option.recommended ? 'text-[#C9A84C]' : 'text-[#0A1628]'}`}>{option.minimum}</p>
+                <p className={`text-sm mb-1 ${option.recommended ? 'text-white/70' : 'text-[#475569]'}`}>Holding: {option.holding}</p>
+                <p className={`text-xs ${option.recommended ? 'text-white/50' : 'text-[#94A3B8]'}`}>{option.note}</p>
               </div>
             ))}
           </div>

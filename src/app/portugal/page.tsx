@@ -32,6 +32,12 @@ const OUTCOMES = [
   { title: 'Path to EU Citizenship', detail: 'Portuguese passport, full EU citizenship', timeline: 'After 5 years' },
 ];
 
+const INVESTMENT_ROUTES = [
+  { route: 'Hospitality Fund (MPEF II)', minimum: '€500,000', holding: '6 years (min)', note: 'CMVM-regulated, diversified across 3 hotel properties', recommended: true },
+  { route: 'Real Estate (Direct)', minimum: '€500,000', holding: '5 years', note: 'Direct property purchase in designated areas' },
+  { route: 'Capital Transfer', minimum: '€500,000', holding: '5 years', note: 'Research or business investment in Portugal' },
+];
+
 const PROPERTIES = [
   {
     name: 'Hotel Indigo Albufeira',
@@ -134,6 +140,29 @@ export default function PortugalPage() {
                 <span className="inline-flex items-center gap-1 text-xs font-medium text-[#C9A84C]">
                   <Clock className="h-3 w-3" /> {outcome.timeline}
                 </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Investment Routes */}
+      <section className="py-16 md:py-24 bg-[#FAFAF5]">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+          <h2 className="text-2xl md:text-3xl font-semibold text-[#0A1628] text-center mb-4 tracking-[-0.02em]">
+            Investment Routes
+          </h2>
+          <p className="text-[#475569] text-center mb-12 max-w-xl mx-auto">
+            Three qualifying routes — Mercan specializes in the hospitality fund, the most popular choice among investors.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            {INVESTMENT_ROUTES.map((option) => (
+              <div key={option.route} className={`rounded-xl p-6 ${option.recommended ? 'bg-[#0A1628] text-white ring-2 ring-[#C9A84C]' : 'bg-white'}`}>
+                {option.recommended && <p className="text-xs font-medium text-[#C9A84C] mb-3 uppercase tracking-wider">Recommended</p>}
+                <h3 className={`font-semibold mb-1 ${option.recommended ? 'text-white' : 'text-[#0A1628]'}`}>{option.route}</h3>
+                <p className={`text-2xl font-bold mb-2 ${option.recommended ? 'text-[#C9A84C]' : 'text-[#0A1628]'}`}>{option.minimum}</p>
+                <p className={`text-sm mb-1 ${option.recommended ? 'text-white/70' : 'text-[#475569]'}`}>Holding: {option.holding}</p>
+                <p className={`text-xs ${option.recommended ? 'text-white/50' : 'text-[#94A3B8]'}`}>{option.note}</p>
               </div>
             ))}
           </div>
