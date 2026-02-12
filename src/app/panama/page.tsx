@@ -4,7 +4,7 @@ import { ProgramCards } from '@/components/sections/ProgramCards';
 import { FAQAccordion } from '@/components/sections/FAQAccordion';
 import { LeadCaptureForm } from '@/components/forms/LeadCaptureForm';
 import { FAQPageJsonLd, ProductJsonLd } from '@/components/seo/JsonLd';
-import { UrgencyBanner } from '@/components/ui/UrgencyBanner';
+
 import { PROGRAMS } from '@/lib/constants';
 import { PanamaProjects } from '@/components/sections/PanamaProjects';
 import { PortugalTimeline } from '@/components/sections/PortugalTimeline';
@@ -13,11 +13,11 @@ import { BadgeCheck, Clock, DollarSign, Globe, Shield, Briefcase, Building } fro
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Panama Qualified Investor Visa | The Points Guy x Mercan',
+  title: 'Panama Qualified Investor Visa | Mercan Group',
   description:
     'Permanent residency in Panama in 30 days. $300,000 minimum investment in branded hospitality projects. Territorial tax system, US dollar economy, visa-free to 142 countries.',
   openGraph: {
-    title: 'Panama Qualified Investor Visa | The Points Guy x Mercan',
+    title: 'Panama Qualified Investor Visa | Mercan Group',
     description: 'Permanent residency in 30 days. $300,000 minimum, territorial tax system.',
     images: [{ url: '/images/panama/hero.jpg', width: 1200, height: 630 }],
   },
@@ -36,8 +36,6 @@ const OUTCOMES = [
 
 const INVESTMENT_OPTIONS = [
   { route: 'Real Estate (Hospitality)', minimum: '$300,000', holding: '5 years', note: 'Invest in Mercan\'s branded hotel projects' },
-  { route: 'Securities (Stock Market)', minimum: '$500,000', holding: '5 years', note: 'Through licensed Panamanian broker' },
-  { route: 'Bank Deposit', minimum: '$750,000', holding: '5 years', note: 'Licensed Panamanian bank, tax-free interest' },
 ];
 
 const PROJECTS = [
@@ -163,9 +161,9 @@ export default function PanamaPage() {
             Investment Options
           </h2>
           <p className="text-[#475569] text-center mb-12 max-w-xl mx-auto">
-            Three qualifying routes — all with a mandatory 5-year holding period. Mercan specializes in the real estate route.
+            Invest in Mercan&apos;s branded hotel projects with a mandatory 5-year holding period.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
             {INVESTMENT_OPTIONS.map((option, idx) => (
               <div key={option.route} className={`rounded-xl p-6 ${idx === 0 ? 'bg-[#0A1628] text-white ring-2 ring-[#C9A84C]' : 'bg-white'}`}>
                 {idx === 0 && <p className="text-xs font-medium text-[#C9A84C] mb-3 uppercase tracking-wider">Recommended</p>}
@@ -285,18 +283,6 @@ export default function PanamaPage() {
             Frequently Asked Questions
           </h2>
           <FAQAccordion faqs={FAQS} />
-        </div>
-      </section>
-
-      {/* Urgency */}
-      <section className="py-8 bg-[#FAFAF5]">
-        <div className="max-w-3xl mx-auto px-4 md:px-6 lg:px-8">
-          <UrgencyBanner
-            message="New program — early investors get priority processing"
-            subtext="Panama's Qualified Investor Program launched in October 2025. Mercan's first allocation of Pullman Hotel units is limited."
-            progress={35}
-            progressLabel="First allocation"
-          />
         </div>
       </section>
 

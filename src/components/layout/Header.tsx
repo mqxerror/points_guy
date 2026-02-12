@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { Menu } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -48,8 +49,9 @@ export function Header() {
       >
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="text-white font-bold text-xl tracking-tight">
-              The Points Guy
+            <Link href="/" className="flex items-center gap-2">
+              <Image src="/images/brand/mercan-logo.png" alt="Mercan Group" width={64} height={64} className="rounded-full" />
+              <span className="text-white font-bold text-xl tracking-tight">Mercan Group</span>
             </Link>
 
             {!isDashboard && (

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export function Footer() {
@@ -7,7 +8,10 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
           {/* Brand */}
           <div>
-            <h3 className="font-bold text-lg mb-3">The Points Guy</h3>
+            <div className="flex items-center gap-3 mb-3">
+              <Image src="/images/brand/mercan-logo.png" alt="Mercan Group" width={72} height={72} className="rounded-full" />
+              <h3 className="font-bold text-lg">Mercan Group</h3>
+            </div>
             <p className="text-white/60 text-sm leading-relaxed">
               Your trusted guide to investment immigration.
               Explore residency programs in Portugal, Greece, and Panama.
@@ -69,7 +73,7 @@ export function Footer() {
 
         <div className="border-t border-white/10 mt-10 pt-6 text-center">
           <p className="text-white/40 text-xs">
-            &copy; {new Date().getFullYear()} The Points Guy x Mercan. All rights reserved.
+            &copy; {new Date().getFullYear()} Mercan Group. All rights reserved.
           </p>
         </div>
       </div>

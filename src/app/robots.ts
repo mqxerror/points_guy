@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/admin/'],
       },
     ],
-    sitemap: 'https://thepointsguy.mercan.com/sitemap.xml',
+    sitemap: 'https://mercan.com/sitemap.xml',
   };
 }

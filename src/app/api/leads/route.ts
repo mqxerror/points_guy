@@ -43,7 +43,7 @@ export async function POST(request: Request) {
         investment_timeline: data.investment_timeline || null,
         questions: data.questions || null,
         newsletter_consent: data.newsletter_consent,
-        source: 'points-guy',
+        source: 'mercan',
       })
       .select('id')
       .single();
@@ -73,7 +73,7 @@ export async function POST(request: Request) {
           investment_timeline: data.investment_timeline || null,
           questions: data.questions || null,
           newsletter_consent: data.newsletter_consent,
-          source: 'points-guy',
+          source: 'mercan',
         }),
       }).catch((err) => {
         console.error('n8n webhook error (non-blocking):', err);
@@ -92,7 +92,7 @@ export async function POST(request: Request) {
       investment_timeline: data.investment_timeline || null,
       questions: data.questions || null,
       newsletter_consent: data.newsletter_consent,
-      source: 'points-guy',
+      source: 'mercan',
     };
 
     Promise.resolve(

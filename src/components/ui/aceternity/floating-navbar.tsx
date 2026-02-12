@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -42,8 +43,9 @@ export function FloatingNavbar({ navItems, currentPath, className }: FloatingNav
           className
         )}
       >
-        <Link href="/" className="text-white font-bold text-sm tracking-tight mr-6">
-          The Points Guy
+        <Link href="/" className="flex items-center gap-2 mr-6">
+          <Image src="/images/brand/mercan-logo.png" alt="Mercan Group" width={60} height={60} className="rounded-full" />
+          <span className="text-white font-bold text-sm tracking-tight">Mercan Group</span>
         </Link>
         {navItems.map((item) => (
           <Link

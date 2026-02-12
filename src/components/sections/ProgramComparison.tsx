@@ -11,7 +11,7 @@ const COMPARISON = [
     feature: 'Investment Type',
     portugal: 'Regulated Fund',
     greece: 'Direct Property',
-    panama: 'Real Estate / Securities',
+    panama: 'Real Estate',
   },
   {
     feature: 'Residency Timeline',

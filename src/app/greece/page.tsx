@@ -4,7 +4,7 @@ import { ProgramCards } from '@/components/sections/ProgramCards';
 import { FAQAccordion } from '@/components/sections/FAQAccordion';
 import { LeadCaptureForm } from '@/components/forms/LeadCaptureForm';
 import { FAQPageJsonLd, ProductJsonLd } from '@/components/seo/JsonLd';
-import { UrgencyBanner } from '@/components/ui/UrgencyBanner';
+
 import { PROGRAMS } from '@/lib/constants';
 import { GreeceUnitCards } from '@/components/sections/GreeceUnitCards';
 import { PortugalTimeline } from '@/components/sections/PortugalTimeline';
@@ -13,11 +13,11 @@ import { BadgeCheck, Clock } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Greece Golden Visa | The Points Guy x Mercan',
+  title: 'Greece Golden Visa | Mercan Group',
   description:
     'Own property in Athens and secure EU residency from €250,000. 3% guaranteed returns for 10 years, full family inclusion, no minimum stay.',
   openGraph: {
-    title: 'Greece Golden Visa | The Points Guy x Mercan',
+    title: 'Greece Golden Visa | Mercan Group',
     description: 'EU residency from €250,000. Direct property ownership, 3% guaranteed returns.',
     images: [{ url: '/images/greece/hero.jpg', width: 1200, height: 630 }],
   },
@@ -32,11 +32,6 @@ const OUTCOMES = [
   { title: 'No Minimum Stay', detail: 'Maintain EU residency without living in Greece', timeline: 'Ongoing' },
 ];
 
-const INVESTMENT_ROUTES = [
-  { route: 'Real Estate (Residential)', minimum: '€250,000', holding: '5 years', note: 'Direct property ownership with title deed in your name', recommended: true },
-  { route: 'Real Estate (Commercial)', minimum: '€250,000', holding: '5 years', note: 'Commercial properties in designated areas' },
-  { route: 'Government Bonds', minimum: '€400,000', holding: '3 years', note: 'Greek government bonds or corporate securities' },
-];
 
 const PROPERTY_FEATURES = [
   { label: 'Units', value: '408 premium residential' },
@@ -59,7 +54,6 @@ const FAQS = [
   { q: "Why is Greece's Golden Visa more affordable?", a: 'Greece offers the lowest entry point in Europe at €250,000. You receive direct property ownership with an individual title deed, rather than a fund-based investment.' },
   { q: 'What returns will I receive?', a: "Guaranteed 3% annual return for 10 years through professional management, plus expected 4-7% annual capital appreciation based on Greece's Residential Price Index." },
   { q: 'Do I need to live in Greece?', a: 'No minimum stay requirement. Your EU residency is maintained without living in Greece, and Schengen travel benefits are included.' },
-  { q: 'Can I use the property personally?', a: 'During the rental management period, the property generates guaranteed returns. After 10 years, you have full control — continue renting at market rates or sell at appreciated value.' },
   { q: 'Can my family be included?', a: 'Yes. Spouse, children under 21, and dependent parents are included at no additional investment cost. Each receives an individual residency permit.' },
   { q: 'When will the property be completed?', a: 'Scheduled completion end of 2027. Your Golden Visa application can be submitted immediately upon signing the purchase agreement — no need to wait for construction.' },
 ];
@@ -83,15 +77,15 @@ export default function GreecePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">€250K</p>
-              <p className="text-white/60 text-xs mt-0.5">Minimum Investment</p>
+              <p className="text-white/60 text-xs mt-0.5">Investment starts from</p>
             </div>
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">3%</p>
               <p className="text-white/60 text-xs mt-0.5">Guaranteed Returns</p>
             </div>
             <div>
-              <p className="text-xl font-bold text-[#C9A84C]">100%</p>
-              <p className="text-white/60 text-xs mt-0.5">Visa Approval Rate</p>
+              <p className="text-xl font-bold text-[#C9A84C]">408</p>
+              <p className="text-white/60 text-xs mt-0.5">Premium Units</p>
             </div>
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">4-6 mo</p>
@@ -119,29 +113,6 @@ export default function GreecePage() {
                 <span className="inline-flex items-center gap-1 text-xs font-medium text-[#C9A84C]">
                   <Clock className="h-3 w-3" /> {outcome.timeline}
                 </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Investment Routes */}
-      <section className="py-16 md:py-24 bg-[#FAFAF5]">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#0A1628] text-center mb-4 tracking-[-0.02em]">
-            Investment Routes
-          </h2>
-          <p className="text-[#475569] text-center mb-12 max-w-xl mx-auto">
-            Multiple qualifying routes — Mercan specializes in residential real estate, the most popular and affordable path.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {INVESTMENT_ROUTES.map((option) => (
-              <div key={option.route} className={`rounded-xl p-6 ${option.recommended ? 'bg-[#0A1628] text-white ring-2 ring-[#C9A84C]' : 'bg-white'}`}>
-                {option.recommended && <p className="text-xs font-medium text-[#C9A84C] mb-3 uppercase tracking-wider">Recommended</p>}
-                <h3 className={`font-semibold mb-1 ${option.recommended ? 'text-white' : 'text-[#0A1628]'}`}>{option.route}</h3>
-                <p className={`text-2xl font-bold mb-2 ${option.recommended ? 'text-[#C9A84C]' : 'text-[#0A1628]'}`}>{option.minimum}</p>
-                <p className={`text-sm mb-1 ${option.recommended ? 'text-white/70' : 'text-[#475569]'}`}>Holding: {option.holding}</p>
-                <p className={`text-xs ${option.recommended ? 'text-white/50' : 'text-[#94A3B8]'}`}>{option.note}</p>
               </div>
             ))}
           </div>
@@ -183,12 +154,6 @@ export default function GreecePage() {
                   </div>
                 ))}
               </div>
-              <div className="mt-6 bg-white rounded-lg p-5">
-                <h3 className="font-semibold text-[#0A1628] mb-2">After 10 Years</h3>
-                <p className="text-[#475569] text-sm leading-relaxed">
-                  Full property control returns to you. Continue renting at market rates for ongoing income, or sell at appreciated value. The property is yours — a real asset with a real deed.
-                </p>
-              </div>
             </div>
           </div>
         </div>
@@ -224,18 +189,6 @@ export default function GreecePage() {
             Frequently Asked Questions
           </h2>
           <FAQAccordion faqs={FAQS} />
-        </div>
-      </section>
-
-      {/* Urgency */}
-      <section className="py-8 bg-[#FAFAF5]">
-        <div className="max-w-3xl mx-auto px-4 md:px-6 lg:px-8">
-          <UrgencyBanner
-            message="Greece is expected to raise the Golden Visa threshold"
-            subtext="Lock in the current €250,000 minimum before the anticipated increase. Limited units available at Keranis Residence."
-            progress={65}
-            progressLabel="Units reserved"
-          />
         </div>
       </section>
 

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | The Points Guy x Mercan',
+  title: 'Terms of Service | Mercan Group',
 };
 
 export default function TermsPage() {
@@ -17,7 +17,7 @@ export default function TermsPage() {
 
           <h2 className="text-lg font-semibold text-[#0A1628] mt-8">1. Overview</h2>
           <p>
-            This website is operated by The Points Guy in partnership with Mercan Group. By accessing and using this
+            This website is operated by Mercan Group. By accessing and using this
             website, you agree to these terms and conditions.
           </p>
 
@@ -50,13 +50,13 @@ export default function TermsPage() {
 
           <h2 className="text-lg font-semibold text-[#0A1628] mt-8">6. Intellectual Property</h2>
           <p>
-            All content on this website, including text, images, logos, and design elements, is the property of The
-            Points Guy and Mercan Group or their respective licensors. Unauthorized use is prohibited.
+            All content on this website, including text, images, logos, and design elements, is the property of
+            Mercan Group or its respective licensors. Unauthorized use is prohibited.
           </p>
 
           <h2 className="text-lg font-semibold text-[#0A1628] mt-8">7. Limitation of Liability</h2>
           <p>
-            To the fullest extent permitted by law, The Points Guy and Mercan Group shall not be liable for any indirect,
+            To the fullest extent permitted by law, Mercan Group shall not be liable for any indirect,
             incidental, or consequential damages arising from the use of this website or reliance on information provided.
           </p>
 

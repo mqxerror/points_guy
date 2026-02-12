@@ -71,7 +71,7 @@ export const PROGRAMS: Program[] = [
       },
     ],
     investmentDetails: [
-      { label: 'Minimum Investment', value: '€250,000' },
+      { label: 'Investment starts from', value: '€250,000' },
       { label: 'Investment Type', value: 'Real Estate Purchase' },
       { label: 'Residency Timeline', value: '3-6 months' },
       { label: 'Renewal', value: 'Every 5 years' },
@@ -112,7 +112,7 @@ export const PROGRAMS: Program[] = [
     ],
     investmentDetails: [
       { label: 'Minimum Investment', value: '$300,000' },
-      { label: 'Investment Type', value: 'Real Estate or Business' },
+      { label: 'Investment Type', value: 'Real Estate' },
       { label: 'Residency Timeline', value: '30-60 days' },
       { label: 'Residency Type', value: 'Permanent from day one' },
       { label: 'Tax System', value: 'Territorial (foreign income tax-free)' },

@@ -4,7 +4,7 @@ import { ProgramCards } from '@/components/sections/ProgramCards';
 import { FAQAccordion } from '@/components/sections/FAQAccordion';
 import { LeadCaptureForm } from '@/components/forms/LeadCaptureForm';
 import { FAQPageJsonLd, ProductJsonLd } from '@/components/seo/JsonLd';
-import { UrgencyBanner } from '@/components/ui/UrgencyBanner';
+
 import { PROGRAMS } from '@/lib/constants';
 import { PortugalProperties } from '@/components/sections/PortugalProperties';
 import { PortugalTimeline } from '@/components/sections/PortugalTimeline';
@@ -13,11 +13,11 @@ import { BadgeCheck, Clock, Shield } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Portugal Golden Visa | The Points Guy x Mercan',
+  title: 'Portugal Golden Visa | Mercan Group',
   description:
     'Gain EU residency through Portugal\'s Golden Visa program. Invest €500,000 in Mercan\'s CMVM-regulated hospitality fund with 2% fixed returns and buyback guarantee.',
   openGraph: {
-    title: 'Portugal Golden Visa | The Points Guy x Mercan',
+    title: 'Portugal Golden Visa | Mercan Group',
     description: 'EU residency from €500,000. 2% fixed returns, buyback guarantee, path to citizenship.',
     images: [{ url: '/images/portugal/hero.jpg', width: 1200, height: 630 }],
   },
@@ -34,8 +34,6 @@ const OUTCOMES = [
 
 const INVESTMENT_ROUTES = [
   { route: 'Hospitality Fund (MPEF II)', minimum: '€500,000', holding: '6 years (min)', note: 'CMVM-regulated, diversified across 3 hotel properties', recommended: true },
-  { route: 'Real Estate (Direct)', minimum: '€500,000', holding: '5 years', note: 'Direct property purchase in designated areas' },
-  { route: 'Capital Transfer', minimum: '€500,000', holding: '5 years', note: 'Research or business investment in Portugal' },
 ];
 
 const PROPERTIES = [
@@ -111,8 +109,8 @@ export default function PortugalPage() {
               <p className="text-white/60 text-xs mt-0.5">Families Served</p>
             </div>
             <div>
-              <p className="text-xl font-bold text-[#C9A84C]">100%</p>
-              <p className="text-white/60 text-xs mt-0.5">Visa Approval Rate</p>
+              <p className="text-xl font-bold text-[#C9A84C]">34</p>
+              <p className="text-white/60 text-xs mt-0.5">Hotels & Projects</p>
             </div>
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">35+</p>
@@ -153,9 +151,9 @@ export default function PortugalPage() {
             Investment Routes
           </h2>
           <p className="text-[#475569] text-center mb-12 max-w-xl mx-auto">
-            Three qualifying routes — Mercan specializes in the hospitality fund, the most popular choice among investors.
+            Invest in Mercan&apos;s CMVM-regulated hospitality fund, the most popular choice among investors.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
             {INVESTMENT_ROUTES.map((option) => (
               <div key={option.route} className={`rounded-xl p-6 ${option.recommended ? 'bg-[#0A1628] text-white ring-2 ring-[#C9A84C]' : 'bg-white'}`}>
                 {option.recommended && <p className="text-xs font-medium text-[#C9A84C] mb-3 uppercase tracking-wider">Recommended</p>}
@@ -210,18 +208,6 @@ export default function PortugalPage() {
             Frequently Asked Questions
           </h2>
           <FAQAccordion faqs={FAQS} bgClass="bg-white" />
-        </div>
-      </section>
-
-      {/* Urgency */}
-      <section className="py-8 bg-white">
-        <div className="max-w-3xl mx-auto px-4 md:px-6 lg:px-8">
-          <UrgencyBanner
-            message="Portugal Golden Visa fund allocation is limited"
-            subtext="MPEF II has a fixed capacity of €121M. Secure your allocation before the fund closes to new subscriptions."
-            progress={78}
-            progressLabel="Fund capacity"
-          />
         </div>
       </section>
 

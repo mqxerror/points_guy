@@ -13,7 +13,7 @@ const STATS = [
   { value: '\u20AC1.3B+', label: 'Invested Since 1988' },
   { value: '4,100+', label: 'Families Served' },
   { value: '34', label: 'Hotels & Projects' },
-  { value: '100%', label: 'Visa Approval Rate' },
+  { value: '35+', label: 'Years Experience' },
 ];
 
 const PARTNERS = [
@@ -57,7 +57,7 @@ const PROGRAM_HIGHLIGHTS = [
       '3% guaranteed annual returns for 10 years',
       '4-7% expected capital appreciation',
       'No minimum stay requirement',
-      'Family inclusion at no extra cost',
+      'Family included',
     ],
     description:
       'Own a premium residential unit at Keranis Residence in Piraeus, Athens \u2014 the largest mixed-use development in the area. Professional property management and guaranteed rental income included.',
@@ -88,7 +88,7 @@ export default function HomePage() {
     <>
       <Hero
         headline="Your Path to Global Residency"
-        subtext="Explore investment immigration programs in Portugal, Greece, and Panama \u2014 curated by The Points Guy and powered by Mercan Group."
+        subtext="Explore investment immigration programs in Portugal, Greece, and Panama - powered by Mercan Group."
         imageSrc="/images/hero/main.jpg"
       />
 
@@ -209,11 +209,11 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center gap-3">
                   <TrendingUp className="h-5 w-5 text-[#C9A84C]" />
-                  <span className="text-sm text-[#1E293B]">100% Success Rate</span>
+                  <span className="text-sm text-[#1E293B]">34 Hotels & Projects</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <Banknote className="h-5 w-5 text-[#C9A84C]" />
-                  <span className="text-sm text-[#1E293B]">Zero Investor Losses</span>
+                  <span className="text-sm text-[#1E293B]">Global Presence</span>
                 </div>
               </div>
             </div>

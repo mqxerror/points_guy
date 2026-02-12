@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | The Points Guy x Mercan',
+  title: 'Privacy Policy | Mercan Group',
 };
 
 export default function PrivacyPage() {
