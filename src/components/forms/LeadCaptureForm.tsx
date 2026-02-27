@@ -12,10 +12,10 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 interface LeadCaptureFormProps {
-  defaultProgram?: 'portugal' | 'greece' | 'panama';
+  defaultPrograms?: ('portugal' | 'greece' | 'panama')[];
 }
 
-export function LeadCaptureForm({ defaultProgram }: LeadCaptureFormProps) {
+export function LeadCaptureForm({ defaultPrograms }: LeadCaptureFormProps) {
   const [step, setStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedName, setSubmittedName] = useState('');
@@ -25,6 +25,8 @@ export function LeadCaptureForm({ defaultProgram }: LeadCaptureFormProps) {
     register,
     handleSubmit,
     trigger,
+    setValue,
+    watch,
     formState: { errors, isSubmitting },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } = useForm<any>({
@@ -32,7 +34,7 @@ export function LeadCaptureForm({ defaultProgram }: LeadCaptureFormProps) {
     defaultValues: {
       full_name: '',
       email: '',
-      program: defaultProgram || '',
+      programs: defaultPrograms || [],
       phone: '',
       nationality: '',
       country_of_residence: '',
@@ -45,7 +47,7 @@ export function LeadCaptureForm({ defaultProgram }: LeadCaptureFormProps) {
   });
 
   const handleStep1Continue = async () => {
-    const valid = await trigger(['full_name', 'email', 'program']);
+    const valid = await trigger(['full_name', 'email', 'programs']);
     if (valid) setStep(2);
   };
 
@@ -106,8 +108,8 @@ export function LeadCaptureForm({ defaultProgram }: LeadCaptureFormProps) {
             <FormStep1
               register={register}
               errors={errors}
-              defaultProgram={defaultProgram}
-              showProgramSelector={!defaultProgram}
+              setValue={setValue}
+              watch={watch}
             />
             <div className="mt-6">
               <Button

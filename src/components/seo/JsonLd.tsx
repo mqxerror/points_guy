@@ -18,7 +18,7 @@ export function OrganizationJsonLd() {
         '@context': 'https://schema.org',
         '@type': 'Organization',
         name: 'Mercan Group',
-        description: 'Global leader in investment immigration with 35+ years of experience.',
+        description: 'Global leader in investment immigration with 37+ years of experience.',
         url: 'https://investgoldenvisa.com',
         foundingDate: '1989',
         numberOfEmployees: { '@type': 'QuantitativeValue', value: 900 },

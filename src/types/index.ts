@@ -2,7 +2,7 @@ export interface Lead {
   id: string;
   fullName: string;
   email: string;
-  program: 'portugal' | 'greece' | 'panama';
+  program: string;
   phone: string | null;
   nationality: string | null;
   countryOfResidence: string | null;
@@ -16,7 +16,7 @@ export interface Lead {
 export interface LeadFormData {
   full_name: string;
   email: string;
-  program: 'portugal' | 'greece' | 'panama';
+  programs: ('portugal' | 'greece' | 'panama')[];
   phone?: string;
   nationality?: string;
   country_of_residence?: string;

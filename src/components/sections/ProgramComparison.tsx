@@ -9,19 +9,19 @@ const COMPARISON = [
   },
   {
     feature: 'Investment Type',
-    portugal: 'Regulated Fund',
-    greece: 'Direct Property',
+    portugal: 'Hospitality Fund',
+    greece: 'Real Estate',
     panama: 'Real Estate',
   },
   {
     feature: 'Residency Timeline',
     portugal: '18-24 months',
-    greece: '4-6 months',
+    greece: '6-8 months',
     panama: '~30 days',
   },
   {
-    feature: 'Residency Type',
-    portugal: 'Temporary → Permanent',
+    feature: 'Residency Requirements',
+    portugal: 'Renewable every 2 years',
     greece: 'Renewable 5-year',
     panama: 'Permanent from day 1',
   },
@@ -35,7 +35,7 @@ const COMPARISON = [
     feature: 'Minimum Stay',
     portugal: '7 days/year avg',
     greece: 'None',
-    panama: '1 week / 2 years',
+    panama: '1 visit every 2 years',
   },
   {
     feature: 'Family Inclusion',
@@ -44,27 +44,15 @@ const COMPARISON = [
     panama: true,
   },
   {
-    feature: 'EU Residency',
-    portugal: true,
-    greece: true,
-    panama: false,
-  },
-  {
     feature: 'Schengen Travel',
     portugal: true,
     greece: true,
     panama: false,
   },
   {
-    feature: 'Tax Benefits',
-    portugal: 'NHR regime available',
-    greece: 'Flat tax options',
-    panama: 'Foreign income tax-free',
-  },
-  {
-    feature: 'Guaranteed Returns',
-    portugal: '2% fixed annual',
-    greece: '3% for 10 years',
+    feature: 'ROI',
+    portugal: '2%',
+    greece: '3%',
     panama: 'Varies by project',
   },
 ];
@@ -88,7 +76,7 @@ export function ProgramComparison() {
           Compare Programs at a Glance
         </h2>
         <p className="text-[#475569] text-center mb-12 max-w-xl mx-auto">
-          Find the best fit for your goals — EU residency, tax optimization, or the fastest path to permanent residency.
+          Find the best fit for your goals — EU residency or the fastest path to permanent residency.
         </p>
 
         {/* Desktop table */}
@@ -132,6 +120,9 @@ export function ProgramComparison() {
                 ))}
               </tbody>
             </table>
+            <p className="text-xs text-[#94A3B8] px-6 py-3 border-t border-[#E2E8F0]">
+              * Returns may vary depending on market conditions, project performance, and other factors.
+            </p>
           </div>
         </div>
 
@@ -162,6 +153,9 @@ export function ProgramComparison() {
                     </div>
                   ))}
                 </div>
+                <p className="text-xs text-[#94A3B8] px-5 pb-4">
+                  * Returns may vary depending on market conditions and other factors.
+                </p>
               </a>
             );
           })}

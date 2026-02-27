@@ -1,11 +1,11 @@
 import { z } from 'zod';
 
+const programEnum = z.enum(['portugal', 'greece', 'panama']);
+
 export const leadStep1Schema = z.object({
   full_name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email address'),
-  program: z.enum(['portugal', 'greece', 'panama'], {
-    error: 'Please select a program',
-  }),
+  programs: z.array(programEnum).min(1, 'Please select at least one program'),
 });
 
 export const leadStep2Schema = z.object({

@@ -73,9 +73,9 @@ export const PROGRAMS: Program[] = [
     investmentDetails: [
       { label: 'Investment starts from', value: '€250,000' },
       { label: 'Investment Type', value: 'Real Estate Purchase' },
-      { label: 'Residency Timeline', value: '3-6 months' },
+      { label: 'Residency Timeline', value: '6-8 months' },
       { label: 'Renewal', value: 'Every 5 years' },
-      { label: 'Family Coverage', value: 'Spouse, children, parents' },
+      { label: 'Potential Dependents', value: 'Spouse, children, parents' },
       { label: 'Minimum Stay', value: 'No requirement' },
     ],
     lifestyleDescription:

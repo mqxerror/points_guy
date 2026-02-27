@@ -27,15 +27,11 @@ const OUTCOMES = [
   { title: 'Permanent Residency from Day One', detail: 'No temporary status — permanent residency granted immediately upon approval', timeline: '30 business days' },
   { title: 'Territorial Tax System', detail: 'Income earned outside Panama is completely tax-free. Bank interest is also tax-exempt', timeline: 'Ongoing' },
   { title: 'US Dollar Economy', detail: 'Fully dollarized economy eliminates currency exchange risk', timeline: 'Ongoing' },
-  { title: 'Visa-Free to 142 Countries', detail: 'Including Schengen Area, UK, most of South America, Mexico, Singapore, and more', timeline: 'Upon approval' },
+  { title: 'Visa-Free to 142 Countries', detail: 'With Panama citizenship (after 5 years), access Schengen Area, UK, most of South America, Mexico, Singapore, and more', timeline: 'Upon citizenship' },
   { title: 'Full Family Inclusion', detail: 'Spouse, children under 25, dependent parents, and disabled relatives', timeline: 'Same application' },
   { title: 'Path to Citizenship', detail: 'Eligible after 5 years of legal residence. Panama passport ranked 34th globally', timeline: 'After 5 years' },
   { title: 'Right to Work', detail: 'Permanent residents can work, start businesses, and invest freely in Panama', timeline: 'Upon approval' },
   { title: 'Minimal Physical Presence', detail: 'Only one visit every two years for one week to maintain residency', timeline: 'Every 2 years' },
-];
-
-const INVESTMENT_OPTIONS = [
-  { route: 'Real Estate (Hospitality)', minimum: '$300,000', holding: '5 years', note: 'Invest in Mercan\'s branded hotel projects' },
 ];
 
 const PROJECTS = [
@@ -73,7 +69,7 @@ const WHY_PANAMA = [
 ];
 
 const FAQS = [
-  { q: 'Why did Mercan partner with Panama?', a: 'Mercan was selected by the Government of Panama as their official strategic partner to promote the Qualified Investor Program internationally. This partnership was formalized in October 2025 and reflects Mercan\'s 35+ years of global investment immigration expertise.' },
+  { q: 'Why did Mercan partner with Panama?', a: 'Mercan was selected by the Government of Panama as their official strategic partner to promote the Qualified Investor Program internationally. This partnership was formalized in October 2025 and reflects Mercan\'s 37+ years of global investment immigration expertise.' },
   { q: 'How fast is the approval process?', a: 'Panama offers one of the fastest residency timelines globally — approximately 30 business days from application filing to permanent residency approval.' },
   { q: 'Can my family be included?', a: 'Yes. Spouse, unmarried children under 18, unmarried children 18-25 who are financially dependent, dependent parents, and disabled relatives. Civil/domestic partnerships (2+ years) are also eligible.' },
   { q: 'Do I need to live in Panama?', a: 'No. You only need to visit once every two years for approximately one week to maintain your permanent residency status.' },
@@ -99,7 +95,7 @@ export default function PanamaPage() {
       {/* Trust Bar */}
       <section className="bg-[#0A1628] py-6">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          <div className="grid grid-cols-3 gap-4 text-center">
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">$300K</p>
               <p className="text-white/60 text-xs mt-0.5">Minimum Investment</p>
@@ -111,10 +107,6 @@ export default function PanamaPage() {
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">142</p>
               <p className="text-white/60 text-xs mt-0.5">Visa-Free Countries</p>
-            </div>
-            <div>
-              <p className="text-xl font-bold text-[#C9A84C]">0%</p>
-              <p className="text-white/60 text-xs mt-0.5">Tax on Foreign Income</p>
             </div>
           </div>
         </div>
@@ -148,29 +140,6 @@ export default function PanamaPage() {
                 <span className="inline-flex items-center gap-1 text-xs font-medium text-[#C9A84C]">
                   <Clock className="h-3 w-3" /> {outcome.timeline}
                 </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Investment Options */}
-      <section className="py-16 md:py-24 bg-[#FAFAF5]">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#0A1628] text-center mb-4 tracking-[-0.02em]">
-            Investment Options
-          </h2>
-          <p className="text-[#475569] text-center mb-12 max-w-xl mx-auto">
-            Invest in Mercan&apos;s branded hotel projects with a mandatory 5-year holding period.
-          </p>
-          <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
-            {INVESTMENT_OPTIONS.map((option, idx) => (
-              <div key={option.route} className={`rounded-xl p-6 ${idx === 0 ? 'bg-[#0A1628] text-white ring-2 ring-[#C9A84C]' : 'bg-white'}`}>
-                {idx === 0 && <p className="text-xs font-medium text-[#C9A84C] mb-3 uppercase tracking-wider">Recommended</p>}
-                <h3 className={`font-semibold mb-1 ${idx === 0 ? 'text-white' : 'text-[#0A1628]'}`}>{option.route}</h3>
-                <p className={`text-2xl font-bold mb-2 ${idx === 0 ? 'text-[#C9A84C]' : 'text-[#0A1628]'}`}>{option.minimum}</p>
-                <p className={`text-sm mb-1 ${idx === 0 ? 'text-white/70' : 'text-[#475569]'}`}>Holding: {option.holding}</p>
-                <p className={`text-xs ${idx === 0 ? 'text-white/50' : 'text-[#94A3B8]'}`}>{option.note}</p>
               </div>
             ))}
           </div>
@@ -286,6 +255,8 @@ export default function PanamaPage() {
         </div>
       </section>
 
+      <ProgramCards excludeSlug="panama" title="Explore Other Programs" />
+
       {/* Lead Form */}
       <section id="lead-form" className="py-16 md:py-24 bg-[#132240]">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
@@ -296,12 +267,10 @@ export default function PanamaPage() {
             As Panama&apos;s official strategic partner, Mercan provides direct access to the Qualified Investor Program. Free consultation, 24-hour response.
           </p>
           <div className="max-w-lg mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8">
-            <LeadCaptureForm defaultProgram="panama" />
+            <LeadCaptureForm defaultPrograms={['panama']} />
           </div>
         </div>
       </section>
-
-      <ProgramCards excludeSlug="panama" title="Explore Other Programs" />
     </>
   );
 }

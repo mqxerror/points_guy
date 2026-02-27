@@ -30,13 +30,16 @@ export async function POST(request: Request) {
       );
     }
 
+    // Store programs as comma-separated string in the program column
+    const programValue = data.programs.join(', ');
+
     // Insert into Supabase
     const { data: lead, error: dbError } = await getSupabaseAdmin()
       .from('tpg_leads')
       .insert({
         full_name: data.full_name,
         email: data.email,
-        program: data.program,
+        program: programValue,
         phone: data.phone || null,
         nationality: data.nationality || null,
         country_of_residence: data.country_of_residence || null,
@@ -66,7 +69,8 @@ export async function POST(request: Request) {
           id: lead.id,
           full_name: data.full_name,
           email: data.email,
-          program: data.program,
+          programs: data.programs,
+          program: programValue,
           phone: data.phone || null,
           nationality: data.nationality || null,
           country_of_residence: data.country_of_residence || null,
@@ -85,7 +89,8 @@ export async function POST(request: Request) {
       id: lead.id,
       full_name: data.full_name,
       email: data.email,
-      program: data.program,
+      programs: data.programs,
+      program: programValue,
       phone: data.phone || null,
       nationality: data.nationality || null,
       country_of_residence: data.country_of_residence || null,

@@ -27,7 +27,7 @@ const OUTCOMES = [
   { title: 'EU Residency for Your Family', detail: 'Permits for spouse, children, and dependent parents', timeline: 'Within 18 months' },
   { title: 'Visa-Free Schengen Travel', detail: '26 European countries, no visa applications needed', timeline: 'Upon approval' },
   { title: 'Fixed 2% Annual Returns', detail: 'Consistent income with capital security', timeline: 'Every year' },
-  { title: '7 Free Hotel Nights Annually', detail: 'Complimentary stays at premium Mercan properties', timeline: 'Every year' },
+  { title: '7 Free Hotel Nights Annually', detail: 'Complimentary stays at premium Mercan properties once your residency is approved', timeline: 'Every year' },
   { title: 'Capital Protection', detail: 'Buyback option for your investment', timeline: 'Year 6 to year 12' },
   { title: 'Path to EU Citizenship', detail: 'Portuguese passport, full EU citizenship', timeline: 'After 5 years' },
 ];
@@ -92,7 +92,7 @@ export default function PortugalPage() {
       <ProductJsonLd name="Portugal Golden Visa" description="EU residency through CMVM-regulated hospitality fund investment" price="500000" currency="EUR" />
       <Hero
         headline="Give Your Family the Freedom of Europe"
-        badges={['From €500,000', '18-Month Residency', 'Full Family Included', '2% Fixed Returns']}
+        badges={['€500,000', 'Guaranteed Buyback', 'Family Inclusion', '2% Fixed Returns']}
         imageSrc={program.heroImage}
       />
 
@@ -102,7 +102,7 @@ export default function PortugalPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">€1.3B+</p>
-              <p className="text-white/60 text-xs mt-0.5">Invested Since 1988</p>
+              <p className="text-white/60 text-xs mt-0.5">Invested Since 1989</p>
             </div>
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">4,100+</p>
@@ -113,7 +113,7 @@ export default function PortugalPage() {
               <p className="text-white/60 text-xs mt-0.5">Hotels & Projects</p>
             </div>
             <div>
-              <p className="text-xl font-bold text-[#C9A84C]">35+</p>
+              <p className="text-xl font-bold text-[#C9A84C]">37+</p>
               <p className="text-white/60 text-xs mt-0.5">Years Experience</p>
             </div>
           </div>
@@ -151,16 +151,15 @@ export default function PortugalPage() {
             Investment Routes
           </h2>
           <p className="text-[#475569] text-center mb-12 max-w-xl mx-auto">
-            Invest in Mercan&apos;s CMVM-regulated hospitality fund, the most popular choice among investors.
+            One of the safest investment vehicles in the market — Mercan&apos;s CMVM-regulated hospitality fund.
           </p>
           <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
             {INVESTMENT_ROUTES.map((option) => (
-              <div key={option.route} className={`rounded-xl p-6 ${option.recommended ? 'bg-[#0A1628] text-white ring-2 ring-[#C9A84C]' : 'bg-white'}`}>
-                {option.recommended && <p className="text-xs font-medium text-[#C9A84C] mb-3 uppercase tracking-wider">Recommended</p>}
-                <h3 className={`font-semibold mb-1 ${option.recommended ? 'text-white' : 'text-[#0A1628]'}`}>{option.route}</h3>
-                <p className={`text-2xl font-bold mb-2 ${option.recommended ? 'text-[#C9A84C]' : 'text-[#0A1628]'}`}>{option.minimum}</p>
-                <p className={`text-sm mb-1 ${option.recommended ? 'text-white/70' : 'text-[#475569]'}`}>Holding: {option.holding}</p>
-                <p className={`text-xs ${option.recommended ? 'text-white/50' : 'text-[#94A3B8]'}`}>{option.note}</p>
+              <div key={option.route} className="rounded-xl p-6 bg-[#0A1628] text-white ring-2 ring-[#C9A84C]">
+                <h3 className="font-semibold mb-1 text-white">{option.route}</h3>
+                <p className="text-2xl font-bold mb-2 text-[#C9A84C]">{option.minimum}</p>
+                <p className="text-sm mb-1 text-white/70">Holding: {option.holding}</p>
+                <p className="text-xs text-white/50">{option.note}</p>
               </div>
             ))}
           </div>
@@ -211,6 +210,8 @@ export default function PortugalPage() {
         </div>
       </section>
 
+      <ProgramCards excludeSlug="portugal" title="Explore Other Programs" />
+
       {/* Lead Form */}
       <section id="lead-form" className="py-16 md:py-24 bg-[#132240]">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
@@ -221,12 +222,10 @@ export default function PortugalPage() {
             Join 4,100+ families who chose Mercan. Free 30-minute consultation, no obligation. We respond within 24 hours.
           </p>
           <div className="max-w-lg mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8">
-            <LeadCaptureForm defaultProgram="portugal" />
+            <LeadCaptureForm defaultPrograms={['portugal']} />
           </div>
         </div>
       </section>
-
-      <ProgramCards excludeSlug="portugal" title="Explore Other Programs" />
     </>
   );
 }

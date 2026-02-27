@@ -25,9 +25,9 @@ export const metadata: Metadata = {
 
 const OUTCOMES = [
   { title: 'Full Property Ownership', detail: 'Individual title deed in your name — real, tangible asset', timeline: 'Upon completion' },
-  { title: 'EU Residency in Months', detail: 'Permits for your entire family — spouse, children, parents', timeline: '4-6 months' },
-  { title: '3% Guaranteed Annual Returns', detail: 'Professional management with consistent income for 10 years', timeline: 'Every year' },
-  { title: '4-7% Capital Appreciation', detail: "Based on Greece's Residential Price Index trajectory", timeline: 'Annually' },
+  { title: 'EU Residency in Months', detail: 'Permits for your entire family — spouse, children, parents', timeline: '6-8 months' },
+  { title: 'Fast Processing Time', detail: 'One of the quickest Golden Visa approvals in Europe', timeline: '6-8 months' },
+  { title: 'Annual Forecasted Capital Appreciation', detail: "Based on Greece's Residential Price Index trajectory", timeline: 'Annually' },
   { title: 'Visa-Free Schengen Travel', detail: '26 European countries without visa applications', timeline: 'Upon approval' },
   { title: 'No Minimum Stay', detail: 'Maintain EU residency without living in Greece', timeline: 'Ongoing' },
 ];
@@ -46,7 +46,7 @@ const PROCESS_STEPS = [
   { step: 1, title: 'Free Consultation', description: 'Discuss your goals and view available units with a Mercan advisor.', duration: '30 min' },
   { step: 2, title: 'Unit Selection & Agreement', description: 'Choose your unit and sign the purchase agreement.', duration: '~1 week' },
   { step: 3, title: 'Preparation & Filing', description: 'Complete documentation and submit your Golden Visa application.', duration: '1-3 weeks' },
-  { step: 4, title: 'Government Processing', description: 'Application reviewed by Greek immigration authorities.', duration: '4-6 months' },
+  { step: 4, title: 'Government Processing', description: 'Application reviewed by Greek immigration authorities.', duration: '6-8 months' },
   { step: 5, title: 'Approval & Residency', description: 'Receive your Greece residency permit.', duration: 'Upon approval' },
 ];
 
@@ -67,7 +67,7 @@ export default function GreecePage() {
       <ProductJsonLd name="Greece Golden Visa" description="EU residency through direct property ownership in Athens" price="250000" currency="EUR" />
       <Hero
         headline="Own a Piece of Athens. And a Future in Europe."
-        badges={['From €250,000', '4-6 Month Residency', '3% Guaranteed Returns', 'Full Family Included']}
+        badges={['From €250,000', '6-8 Month Residency', 'Full Management Agreement', 'Full Family Included']}
         imageSrc={program.heroImage}
       />
 
@@ -80,16 +80,16 @@ export default function GreecePage() {
               <p className="text-white/60 text-xs mt-0.5">Investment starts from</p>
             </div>
             <div>
-              <p className="text-xl font-bold text-[#C9A84C]">3%</p>
-              <p className="text-white/60 text-xs mt-0.5">Guaranteed Returns</p>
+              <p className="text-xl font-bold text-[#C9A84C]">6-8 mo</p>
+              <p className="text-white/60 text-xs mt-0.5">To Residency</p>
             </div>
             <div>
               <p className="text-xl font-bold text-[#C9A84C]">408</p>
               <p className="text-white/60 text-xs mt-0.5">Premium Units</p>
             </div>
             <div>
-              <p className="text-xl font-bold text-[#C9A84C]">4-6 mo</p>
-              <p className="text-white/60 text-xs mt-0.5">To Residency</p>
+              <p className="text-xl font-bold text-[#C9A84C]">5 years</p>
+              <p className="text-white/60 text-xs mt-0.5">Renewable Residency</p>
             </div>
           </div>
         </div>
@@ -159,16 +159,6 @@ export default function GreecePage() {
         </div>
       </section>
 
-      {/* Unit Types */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#0A1628] text-center mb-12 tracking-[-0.02em]">
-            Available Unit Types
-          </h2>
-          <GreeceUnitCards />
-        </div>
-      </section>
-
       {/* Process */}
       <section className="py-16 md:py-24 bg-[#FAFAF5]">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
@@ -192,6 +182,8 @@ export default function GreecePage() {
         </div>
       </section>
 
+      <ProgramCards excludeSlug="greece" title="Explore Other Programs" />
+
       {/* Lead Form */}
       <section id="lead-form" className="py-16 md:py-24 bg-[#132240]">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
@@ -202,12 +194,10 @@ export default function GreecePage() {
             Europe&apos;s most affordable Golden Visa. Free consultation, 24-hour response. No obligation.
           </p>
           <div className="max-w-lg mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8">
-            <LeadCaptureForm defaultProgram="greece" />
+            <LeadCaptureForm defaultPrograms={['greece']} />
           </div>
         </div>
       </section>
-
-      <ProgramCards excludeSlug="greece" title="Explore Other Programs" />
     </>
   );
 }

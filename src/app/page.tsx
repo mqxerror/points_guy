@@ -10,10 +10,10 @@ import Image from 'next/image';
 import { Globe, Home, MapPin, Shield, Users, TrendingUp, BadgeCheck, Banknote } from 'lucide-react';
 
 const STATS = [
-  { value: '\u20AC1.3B+', label: 'Invested Since 1988' },
+  { value: '\u20AC1.3B+', label: 'Invested Since 1989' },
   { value: '4,100+', label: 'Families Served' },
   { value: '34', label: 'Hotels & Projects' },
-  { value: '35+', label: 'Years Experience' },
+  { value: '37+', label: 'Years Experience' },
 ];
 
 const PARTNERS = [
@@ -49,7 +49,7 @@ const PROGRAM_HIGHLIGHTS = [
     name: 'Greece Golden Visa',
     href: '/greece',
     investment: 'From \u20AC250,000',
-    timeline: '4-6 months to residency',
+    timeline: '6-8 months to residency',
     icon: Home,
     highlights: [
       'Europe\'s most affordable Golden Visa',
@@ -190,7 +190,7 @@ export default function HomePage() {
                 A Commitment to Excellence
               </h2>
               <p className="text-sm font-medium text-[#C9A84C] mb-6 uppercase tracking-wider">
-                35+ Years of Global Expertise
+                37+ Years of Global Expertise
               </p>
               <p className="text-[#475569] leading-relaxed mb-4">
                 Founded in 1989, Mercan Group is a global leader in investment immigration. With over &euro;1.3 billion raised in direct Golden Visa investments and 4,100+ investor families served, Mercan provides end-to-end support from initial consultation through residency approval.
