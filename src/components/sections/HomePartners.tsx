@@ -12,22 +12,32 @@ interface HomePartnersProps {
 }
 
 export function HomePartners({ partners }: HomePartnersProps) {
+  // Duplicate the array for seamless infinite scroll
+  const doubled = [...partners, ...partners];
+
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 items-center justify-items-center">
-      {partners.map((partner) => (
-        <div
-          key={partner.name}
-          className="flex items-center justify-center p-4 rounded-xl bg-white border border-[#E2E8F0] hover:border-[#C9A84C]/30 transition-colors w-full aspect-[5/3]"
-        >
-          <Image
-            src={partner.src}
-            alt={partner.name}
-            width={200}
-            height={100}
-            className="object-contain w-full h-full max-h-20 grayscale hover:grayscale-0 transition-all"
-          />
-        </div>
-      ))}
+    <div className="relative overflow-hidden">
+      {/* Fade edges */}
+      <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#FAFAF5] to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#FAFAF5] to-transparent z-10" />
+
+      {/* Scrolling track */}
+      <div className="flex animate-scroll-x gap-12 items-center py-4">
+        {doubled.map((partner, i) => (
+          <div
+            key={`${partner.name}-${i}`}
+            className="flex-shrink-0 flex items-center justify-center"
+          >
+            <Image
+              src={partner.src}
+              alt={partner.name}
+              width={500}
+              height={500}
+              className="object-contain h-16 md:h-20 w-auto opacity-70 hover:opacity-100 transition-opacity duration-300"
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
