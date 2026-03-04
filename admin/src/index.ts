@@ -165,8 +165,8 @@ async function start() {
           },
           actions: {
             new: { isAccessible: false },
-            bulkDelete: { isAccessible: false },
-            delete: { isAccessible: false },
+            bulkDelete: { isAccessible: true },
+            delete: { isAccessible: true },
             edit: {
               isAccessible: true,
               before: async (request: any) => {
