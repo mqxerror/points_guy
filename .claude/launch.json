@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "nextjs-dev",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["node_modules/next/dist/bin/next", "dev"],
+      "port": 3000
+    },
+    {
+      "name": "admin-dev",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["admin/node_modules/tsx/dist/cli.mjs", "admin/src/index.ts"],
+      "port": 3091
+    }
+  ]
+}

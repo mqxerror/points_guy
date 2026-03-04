@@ -59,7 +59,12 @@ export async function POST(request: Request) {
       );
     }
 
-    // Fire-and-forget: n8n webhook (legacy env var)
+    // Split full_name into firstName/lastName for n8n compatibility
+    const nameParts = data.full_name.trim().split(/\s+/);
+    const firstName = nameParts[0] || '';
+    const lastName = nameParts.slice(1).join(' ') || '';
+
+    // Fire-and-forget: n8n webhook
     const n8nUrl = process.env.N8N_WEBHOOK_URL;
     if (n8nUrl) {
       fetch(n8nUrl, {
@@ -68,6 +73,10 @@ export async function POST(request: Request) {
         body: JSON.stringify({
           id: lead.id,
           full_name: data.full_name,
+          first_name: firstName,
+          last_name: lastName,
+          firstName,
+          lastName,
           email: data.email,
           programs: data.programs,
           program: programValue,
@@ -75,6 +84,7 @@ export async function POST(request: Request) {
           nationality: data.nationality || null,
           country_of_residence: data.country_of_residence || null,
           investment_timeline: data.investment_timeline || null,
+          message: data.questions || null,
           questions: data.questions || null,
           newsletter_consent: data.newsletter_consent,
           source: 'mercan',
@@ -103,7 +113,7 @@ export async function POST(request: Request) {
     Promise.resolve(
       getSupabaseAdmin()
         .from('tpg_webhooks')
-        .select('name, url, secret')
+        .select('name, url, secret, field_mappings')
         .eq('event_type', 'new_lead')
         .eq('active', true)
     ).then(({ data: webhooks }) => {
@@ -111,13 +121,30 @@ export async function POST(request: Request) {
       for (const wh of webhooks) {
         const headers: Record<string, string> = { 'Content-Type': 'application/json' };
         if (wh.secret) headers['X-Webhook-Secret'] = wh.secret;
+
+        // Apply field mappings: rename keys in leadPayload based on webhook config
+        let mappedPayload: Record<string, unknown> = { ...leadPayload };
+        const mappings = wh.field_mappings as Record<string, string> | null;
+        if (mappings && typeof mappings === 'object') {
+          const remapped: Record<string, unknown> = {};
+          for (const [sourceKey, value] of Object.entries(mappedPayload)) {
+            const targetKey = mappings[sourceKey];
+            if (targetKey && targetKey.trim()) {
+              remapped[targetKey.trim()] = value;
+            } else {
+              remapped[sourceKey] = value;
+            }
+          }
+          mappedPayload = remapped;
+        }
+
         fetch(wh.url, {
           method: 'POST',
           headers,
           body: JSON.stringify({
             event: 'new_lead',
             timestamp: new Date().toISOString(),
-            data: leadPayload,
+            data: mappedPayload,
           }),
         }).catch((err) => {
           console.error(`Webhook "${wh.name}" failed:`, err.message);
