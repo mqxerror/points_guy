@@ -10,8 +10,8 @@ export const leadStep1Schema = z.object({
 
 export const leadStep2Schema = z.object({
   phone: z.string().optional(),
-  nationality: z.string().optional(),
-  country_of_residence: z.string().optional(),
+  nationality: z.string().min(1, 'Please select your nationality'),
+  country_of_residence: z.string().min(1, 'Please select your country of residence'),
   investment_timeline: z.string().optional(),
   questions: z.string().optional(),
   newsletter_consent: z.boolean().optional().default(false),

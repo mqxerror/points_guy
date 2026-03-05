@@ -32,7 +32,6 @@ export function FormStep2({ register, errors }: FormStep2Props) {
           label="Nationality"
           options={nationalityOptions}
           placeholder="Select nationality"
-          optional
           error={errors.nationality?.message as string | undefined}
           {...register('nationality')}
         />
@@ -40,7 +39,6 @@ export function FormStep2({ register, errors }: FormStep2Props) {
           label="Country of Residence"
           options={countryOptions}
           placeholder="Select country"
-          optional
           error={errors.country_of_residence?.message as string | undefined}
           {...register('country_of_residence')}
         />
