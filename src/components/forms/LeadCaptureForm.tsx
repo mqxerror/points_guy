@@ -147,7 +147,7 @@ export function LeadCaptureForm({ defaultPrograms }: LeadCaptureFormProps) {
                 size="lg"
                 isLoading={isSubmitting}
               >
-                {isSubmitting ? 'Submitting...' : 'Get My Free Consultation'}
+                {isSubmitting ? 'Submitting...' : 'Get My Free Brochure & Consultation'}
               </Button>
               <button
                 type="button"
