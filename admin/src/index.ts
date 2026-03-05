@@ -232,6 +232,9 @@ async function start() {
       logo: false,
       favicon: '/admin/frontend/assets/favicon.ico',
     },
+    assets: {
+      scripts: ['/admin/custom/nav-links.js'],
+    },
     dashboard: {
       handler: async () => {
         // Fetch lead stats from DB
@@ -345,6 +348,40 @@ async function start() {
       console.error('CSV export error:', err);
       res.status(500).send('Export failed');
     }
+  });
+
+  // ── Custom nav link script (injected into AdminJS sidebar) ──
+  app.get('/admin/custom/nav-links.js', (req, res) => {
+    res.setHeader('Content-Type', 'application/javascript');
+    res.send(`
+(function() {
+  function addSettingsLink() {
+    var nav = document.querySelector('[data-css="sidebar-resources"]') || document.querySelector('nav') || document.querySelector('aside');
+    if (!nav) return setTimeout(addSettingsLink, 500);
+    if (document.getElementById('webhook-settings-link')) return;
+    var sections = nav.querySelectorAll('section');
+    var target = sections.length ? sections[sections.length - 1].parentElement : nav;
+    var section = document.createElement('section');
+    section.style.marginTop = '16px';
+    section.innerHTML = '<h3 style="padding:0 16px;margin-bottom:4px;font-size:12px;text-transform:uppercase;color:#919bab;letter-spacing:.5px;font-weight:400">Settings</h3>' +
+      '<ul style="list-style:none;padding:0;margin:0">' +
+      '<li><a id="webhook-settings-link" href="/admin/webhooks" style="display:flex;align-items:center;gap:8px;padding:8px 16px;color:#3b3b5a;text-decoration:none;font-size:14px;border-radius:4px;transition:background .15s"' +
+      ' onmouseenter="this.style.background=\\'rgba(0,0,0,0.04)\\'" onmouseleave="this.style.background=\\'none\\'">' +
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>' +
+      'Webhook Settings</a></li>' +
+      '<li><a href="/admin/api/export-csv" style="display:flex;align-items:center;gap:8px;padding:8px 16px;color:#3b3b5a;text-decoration:none;font-size:14px;border-radius:4px;transition:background .15s"' +
+      ' onmouseenter="this.style.background=\\'rgba(0,0,0,0.04)\\'" onmouseleave="this.style.background=\\'none\\'">' +
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>' +
+      'Export Leads CSV</a></li></ul>';
+    target.appendChild(section);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addSettingsLink);
+  else addSettingsLink();
+  // Re-inject after SPA navigation
+  var observer = new MutationObserver(function() { if (!document.getElementById('webhook-settings-link')) addSettingsLink(); });
+  observer.observe(document.body, { childList: true, subtree: true });
+})();
+    `);
   });
 
   // ── Webhook Config Page ──
